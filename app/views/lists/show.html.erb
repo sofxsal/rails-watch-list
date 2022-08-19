@@ -1,0 +1,7 @@
+<h1>All lists of Movie<h1>
+
+
+<%= @list.name %>
+<% @list.movies.each do |movie| %>
+  <%= movie.title %>
+<% end %>
