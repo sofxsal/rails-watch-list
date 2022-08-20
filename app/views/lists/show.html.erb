@@ -1,7 +1,18 @@
-<h1>All lists of Movie<h1>
 
+<h1><%= @list.name %></h1>
 
-<%= @list.name %>
 <% @list.movies.each do |movie| %>
-  <%= movie.title %>
+  <strong>Title:</strong> <%= movie.title %>
+  <br>
+  <strong>Overview:</strong> <%= movie.overview %>
+  <br>
+  <strong>Poster Link:</strong> <%= movie.poster_url %>
+  <br>
+  <strong>Rating:</strong> <%= movie.rating %>
 <% end %>
+<br>
+
+
+<p><%= link_to "Add a movie", new_list_bookmark_path(@list), class:"btn btn-primary" %></p>
+
+ <%= link_to "Delete this list", list_path(@list), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
